@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="html" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+    	<title>electron-autosaloon-admin</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
+    	<% if (htmlWebpackPlugin.options.appModules) { %>
+      	<!-- Add `app/node_modules` to global paths so `require` works properly in development -->
+      	<script>
+			require('module').globalPaths.push('<%= htmlWebpackPlugin.options.appModules.replace(/\\/g, '\\\\') %>')
+      	</script>
+    	<% } %>
+  	</head>
+
+	<body>
+    	<div id="wrapper"></div>
+	    <!-- webpack builds are automatically injected -->
+	</body>
+
+</html>
