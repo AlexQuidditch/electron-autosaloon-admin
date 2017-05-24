@@ -1,15 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import * as actions from './actions';
-import * as getters from './getters';
-import modules from './modules';
-
 Vue.use(Vuex);
+
+import state from './state.js';
+import * as mutations from './mutations.js';
+import * as actions from './actions.js';
 
 export default new Vuex.Store({
 	strict: process.env.NODE_ENV !== 'production',
-	actions,
-	getters,
-	modules
+	state , mutations , actions
 });

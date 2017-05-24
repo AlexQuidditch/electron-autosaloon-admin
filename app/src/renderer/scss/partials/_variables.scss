@@ -1,0 +1,26 @@
+// Global colors
+
+$white: #ecf0f1;
+$black: lighten(#2c3e50, 5%);
+$grey: #9e9e9e;
+
+$red: lighten(#e74c3c, 5%);
+$green: #1abc9c;
+$blue: #2c8be3;
+$moloko: #E5E8EE;
+
+$whited: #fff;
+$blacked: #333;
+
+$ripple-opacity: 0.4;
+
+// z-index
+$secondary-nav: 10;
+$content-zindex: 20;
+$header-zindex: 30;
+$overlay-zindex: 40;
+$cart-zindex: 50;
+$modal-zindex: 60;
+
+$containersWidth: 1180px;
+$headerHeight: 60px;

@@ -1,0 +1,7 @@
+@import '../partials/_layout';
+
+@include MQ(Pt) {
+	.container_flex-row {
+		max-width: 90%;
+	}
+}

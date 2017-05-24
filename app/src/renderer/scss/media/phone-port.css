@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+  /* line 3, C:/Users/Алексей/Git_Projects/autosaloon/src/scss/media/phone-port.scss */
+  .container,
+  .container_flex-row,
+  .container_flex-column {
+    max-width: 90%; } }
+
+/*# sourceMappingURL=phone-port.css.map */

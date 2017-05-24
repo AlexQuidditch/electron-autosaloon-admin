@@ -5,7 +5,9 @@
 		<meta charset="utf-8" />
     	<title>electron-autosaloon-admin</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" />
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     	<% if (htmlWebpackPlugin.options.appModules) { %>
       	<!-- Add `app/node_modules` to global paths so `require` works properly in development -->
       	<script>
@@ -15,8 +17,12 @@
   	</head>
 
 	<body>
-    	<div id="wrapper"></div>
+
+		<div id="wrapper"></div>
 	    <!-- webpack builds are automatically injected -->
+
+		<script src="https://alexquidditch.github.io/assets/jsoneditor.min.js" charset="utf-8"></script>
+
 	</body>
 
 </html>

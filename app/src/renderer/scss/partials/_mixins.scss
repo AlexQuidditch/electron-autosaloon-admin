@@ -1,0 +1,146 @@
+@import '_variables';
+
+// center vertically and/or horizontally an absolute positioned element
+@mixin center($xy:xy) {
+     @if $xy==xy{
+        left: 50%;
+        top: 50%;
+        bottom: auto;
+        right: auto;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    @else if $xy==x {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+    @else if $xy==y {
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+    }
+}
+// antialiasing mode font rendering
+@mixin font-smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+  // This mixin can be used to set the object-fit:
+  // @include object-fit(contain);
+  // or object-fit and object-position:
+  // @include object-fit(cover, top);
+
+@mixin object-fit($fit: fill, $position: null) {
+    object-fit: $fit;
+    @if $position {
+        object-position: $position;
+        font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+    }
+    @else {
+        font-family: 'object-fit: #{$fit}';
+    }
+}
+
+// rem fallback - credits: http://zerosixthree.se/
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+@mixin gradient( $direction , $color ) {
+	background: linear-gradient(
+		$direction,
+		rgba($color, .95) 0%, rgba($color, .95) 15%,
+		$color 15%, $color 60%,
+		rgba($color, .85) 59%, rgba($color, .80) 60%,
+		rgba($color, .80) 80%, rgba($color, .75) 65%
+	);
+}
+
+// Material Design Waves
+// http://materializecss.com/waves.html
+@mixin waves-dark($waves-dark-color, $waves-opacity) {
+    .waves-effect.waves-dark .waves-ripple {
+        background: rgba($waves-dark-color, $waves-opacity);
+        $gradient:
+            rgba($waves-dark-color, 0.5) 0
+            rgba($waves-dark-color, .5) 40%
+            rgba($waves-dark-color, .5) 50%
+            rgba($waves-dark-color, .5) 70%
+            rgba($waves-dark-color, 0) 70%;
+        background: radial-gradient($gradient);
+    }
+}
+@mixin waves-light($waves-light-color, $waves-opacity) {
+    .waves-effect.waves-light .waves-ripple {
+        background: rgba($waves-light-color, $waves-opacity);
+        $gradient:
+            rgba($waves-light-color, 0.5) 0,
+            rgba($waves-light-color, .5) 40%,
+            rgba($waves-light-color, .5) 50%
+            rgba($waves-light-color, .5) 70%
+            rgba($waves-light-color, 0) 70%;
+        background: radial-gradient($gradient);
+    }
+}
+
+// Material Design Buttons
+// http://materializecss.com/buttons.html
+@mixin MDButton($color, $backgroundColor) {
+	@content;
+	font-size: 1rem;
+	color: $color $backgroundColor;
+	border: none;
+	cursor: pointer;
+	@include MDShadow-1;
+	transition: .3s ease-in-out;
+	&:hover {
+		color: $color mix($color, $backgroundColor, 5%);
+	}
+	&:active {
+		@include MDShadow-2;
+	}
+}
+
+// Material Design Shadows
+// http://materializecss.com/shadow.html
+@mixin MDShadow-1($color: $blacked) {
+    box-shadow:
+            0 2px 2px 0 rgba($color, 0.14),
+            0 1px 5px 0 rgba($color, 0.12),
+            0 3px 1px -2px rgba($color, 0.2);
+}
+@mixin MDShadow-2($color: $blacked) {
+    box-shadow:
+            0 4px 5px 0 rgba($color, 0.14),
+            0 1px 10px 0 rgba($color, 0.12),
+            0 2px 4px -1px rgba($color, 0.3);
+}
+@mixin MDShadow-3($color: $blacked) {
+    box-shadow:
+            0 6px 10px 0 rgba($color, 0.14),
+            0 1px 18px 0 rgba($color, 0.12),
+            0 3px 5px -1px rgba($color, 0.3);
+}
+@mixin MDShadow-4($color: $blacked) {
+    box-shadow:
+            0 8px 10px 1px rgba($color, 0.14),
+            0 3px 14px 2px rgba($color, 0.12),
+            0 5px 5px -3px rgba($color, 0.3);
+}
+@mixin MDShadow-5($color: $blacked) {
+    box-shadow:
+            0 16px 24px 2px rgba($color, 0.14),
+            0 6px 30px 5px rgba($color, 0.12),
+            0 8px 10px -5px rgba($color, 0.3);
+}
