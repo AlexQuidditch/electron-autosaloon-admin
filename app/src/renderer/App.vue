@@ -3,7 +3,7 @@
 		<s-header></s-header>
 		<main id="main" class="main">
 			<transition name="fade" mode="out-in" appear>
-		    	<router-view></router-view>
+				<router-view></router-view>
 			</transition>
 		</main>
 		<s-footer></s-footer>
@@ -18,7 +18,23 @@
 	export default {
 		name: 'app',
 		components: { sHeader , sFooter },
-	};
+		created() {
+			this.$store.dispatch( 'fetchFromServer' , 'Catalogue' );
+			this.$store.dispatch( 'fetchFromServer' , 'Cars' );
+			this.$store.dispatch( 'fetchFromServer' , 'Service' );
+			this.$store.dispatch( 'fetchFromServer' , 'Services' );
+			this.$store.dispatch( 'fetchFromServer' , 'Filter' );
+			this.$store.dispatch( 'fetchFromServer' , 'TestDrive' );
+			this.$store.dispatch( 'fetchFromServer' , 'Videos' );
+		},
+		mounted() {
+			this.$nextTick( () => {
+				Waves.init();
+				Waves.attach('[ripple-dark]', ['waves-dark']);
+				Waves.attach('[ripple-light]', ['waves-light']);
+			})
+		}
+	}
 
 </script>
 
@@ -34,9 +50,9 @@
 
 	html , body {
 		size: 100%;
-		touch-action: manipulation;
 		background-color: $whited;
 		font-size: 16px;
+		touch-action: manipulation;
 	}
 	.wrapper {
 		color: $black;
@@ -44,11 +60,8 @@
 		@include font-smoothing;
 	}
 	.main {
-		min-height: calc(100vh - 400px);
-		margin-top: $headerHeight;
-		&._margin-none {
-			margin-top: 0;
-		}
+		min-height: 100vh;
+		padding: 20px 0;
 	}
 	.container {
 		width: $containersWidth;
@@ -58,7 +71,7 @@
 			display: none;
 		}
 		&._wide {
-			width: $containersWidth + 100px
+			width: 100%
 		}
 		&._flex-row {
 			display: flex;
@@ -97,6 +110,9 @@
 		}
 	}
 
+	@include waves-light( $whited, $ripple-opacity);
+	@include waves-dark( $red, $ripple-opacity);
+
 	button {
 		cursor: pointer;
 	}
@@ -126,6 +142,57 @@
 	.fade-fast-enter-active,
 	.fade-fast-leave-active {
 		transition: opacity .15s ease-in-out
+	}
+
+	.editor-container {
+		&__title {
+			margin: 16px 0;
+		}
+		&__input {
+			width: 100%;
+			margin: 1rem 0;
+			padding: 0 1rem;
+			line-height: 3;
+			color: $black transparent;
+			border: solid 2px $red;
+			outline: none;
+			transition: box-shadow .3s ease-in-out;
+			&:focus {
+				@include MDShadow-1;
+			}
+		}
+		&__editor {
+			border: solid 2px $red;
+			&._sub-title {
+				margin-bottom: 16px;
+				#quill-container {
+					min-height: 5rem;
+				}
+			}
+			#quill-container {
+				min-height: 15rem;
+				height: auto;
+			}
+		}
+		&__footer {
+			height: 72px;
+		}
+		&__button {
+			@include MDButton($white, $red) {
+				size: 12.5rem 2.5rem;
+				margin: 1rem 0;
+				margin-right: 1rem;
+			}
+			&._send {
+				background-color: $green
+			}
+			&._clear {}
+		}
+	}
+	.ql-container {
+		.ql-editor {
+			font-size: 1rem;
+		}
 	}
 
 </style>

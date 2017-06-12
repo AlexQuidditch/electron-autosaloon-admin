@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="html" dir="ltr">
+
 	<head>
 		<meta charset="utf-8" />
     	<title>electron-autosaloon-admin</title>
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" />
-		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    	<% if (htmlWebpackPlugin.options.appModules) { %>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.4/sweetalert2.min.css" rel="stylesheet" integrity="sha256-zgaKkhKpXzSrPyXVfczHhygcPSHyhHD+PSWnq3LZHHs=" crossorigin="anonymous" />
+
+		<link href="https://alexquidditch.github.io/assets/waves.min.css" rel="stylesheet" />
+
+		<% if (htmlWebpackPlugin.options.appModules) { %>
       	<!-- Add `app/node_modules` to global paths so `require` works properly in development -->
       	<script>
 			require('module').globalPaths.push('<%= htmlWebpackPlugin.options.appModules.replace(/\\/g, '\\\\') %>')
@@ -22,6 +28,7 @@
 	    <!-- webpack builds are automatically injected -->
 
 		<script src="https://alexquidditch.github.io/assets/jsoneditor.min.js" charset="utf-8"></script>
+		<script src="https://alexquidditch.github.io/assets/waves.min.js" charset="utf-8"></script>
 
 	</body>
 

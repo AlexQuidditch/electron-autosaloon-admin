@@ -1,15 +1,16 @@
 import Vue from 'vue'
+import { urlDB } from '../../data.js';
 
 export default {
-	getPosts(url) {
-		return Vue.http.get(url)
+	sendToServer( JSONname , content ) {
+		return Vue.http.put( `${ urlDB }/${ JSONname }.json` , content )
+			.then( response => console.log(response) )
+			.catch( error => console.error(error) )
+	},
+	fetchFromServer( JSONname ) {
+		return Vue.http.get( `${ urlDB }/${ JSONname }.json`)
 			.then( response => { return response.json() })
-			.then( data => {
-				const getData = [];
-				for (let key in data) {
-					getData.unshift(data[key])
-				};
-				return getData;
-			})
+			.then( data => { return data })
+			.catch( error => console.error(error) )
 	}
 };

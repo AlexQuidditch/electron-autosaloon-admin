@@ -9,3 +9,8 @@ npm-debug.log
 npm-debug.log.*
 thumbs.db
 !.gitkeep
+api.js
+firebase.js
+data.js
+
+app/src/renderer/components/main-page\.vue

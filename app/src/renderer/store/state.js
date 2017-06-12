@@ -26,6 +26,34 @@ export default {
 				]
             }
         },
+		catalogueItem: {
+			type: "array",
+			oneOf: [
+				{
+                    type: "object",
+					properties: {
+                        model: {
+                            type: "string",
+                            description: "Название авто",
+                            minLength: 2
+                        },
+                        price: {
+                            type: "string"
+                        },
+						image: {
+							type: "string"
+						},
+						route: {
+							type: "string"
+						},
+						description: {
+							type: "string",
+							format: "textarea"
+						}
+                    }
+				}
+			]
+		},
         Person: {
             title: "Person",
             type: "object",
@@ -102,136 +130,21 @@ export default {
             }
         }
     },
-	content: {
-		Cars: {
-			chery: {
-				tiggo2: [
-					{
-						title: 'Comfort MT',
-						price: '395 188'
-					},
-					{
-						title: 'Luxury MT',
-						price: '499 088'
-					},
-					{
-						title: 'Luxury CVT',
-						price: '599 088'
-					}
-				],
-				tiggo3: [
-					{
-						title: 'Comfort MT',
-						price: '395 188'
-					},
-					{
-						title: 'Luxury MT',
-						price: '499 088'
-					},
-					{
-						title: 'Luxury CVT',
-						price: '599 088'
-					}
-				],
-				tiggo5: [
-					{
-						title: 'Standart MT',
-						price: '972 900 **'
-					},
-					{
-						title: 'Comfort MT',
-						price: '1 049 900'
-					},
-					{
-						title: 'Comfort CVT',
-						price: '1 119 900'
-					},
-					{
-						title: 'Luxury CVT',
-						price: '1 179 000'
-					}
-				]
-			},
-			changan: {
-				cs35: [
-					{
-						title: 'MТ COMFORT',
-						price: '799 900'
-					},
-					{
-						title: 'MТ LUXE',
-						price: '835 900'
-					},
-					{
-						title: 'АТ COMFORT',
-						price: '885 900'
-					},
-					{
-						title: 'АТ LUXE',
-						price: '925 920'
-					}
-				],
-				eado: [
-					{
-						title: 'MТ COMFORT',
-						price: '560 000'
-					},
-					{
-						title: 'MТ LUXE',
-						price: '585 650'
-					},
-					{
-						title: 'АТ LUXE',
-						price: '628 000'
-					}
-				],
-				raeton: [
-					{
-						title: 'АТ LUXE',
-						price: '1 339 000'
-					}
-				]
-			},
-			hawtai: {
-				cs35: [
-					{
-						title: 'MТ COMFORT',
-						price: '799 900'
-					},
-					{
-						title: 'MТ LUXE',
-						price: '835 900'
-					},
-					{
-						title: 'АТ COMFORT',
-						price: '885 900'
-					},
-					{
-						title: 'АТ LUXE',
-						price: '925 920'
-					}
-				],
-				eado: [
-					{
-						title: 'MТ COMFORT',
-						price: '560 000'
-					},
-					{
-						title: 'MТ LUXE',
-						price: '585 650'
-					},
-					{
-						title: 'АТ LUXE',
-						price: '628 000'
-					}
-				],
-				raeton: [
-					{
-						title: 'АТ LUXE',
-						price: '1 339 000'
-					}
-				]
-			}
-		}
+	content: {},
+	backUp: {},
+	setttings: {
+		customToolbar: [
+			['bold', 'italic', 'underline', 'strike'],
+			[{ 'list': 'ordered'}, { 'list': 'bullet' }],
+			[{ 'script': 'sub'}, { 'script': 'super' }],
+			[{ 'indent': '-1'}, { 'indent': '+1' }],
+			[{ 'direction': 'rtl' }],
+			[{ 'size': ['small', 'large', 'huge'] }],
+			[{ 'header': [1, 2, 3, 4, 5, 6, false ] }],
+			[{ 'color': [] },{ 'background': [] }],
+			[{ 'font': [] }],
+			[{ 'align': [] }],
+			['clean']
+		]
 	}
 };
