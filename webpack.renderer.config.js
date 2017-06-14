@@ -103,7 +103,7 @@ let rendererConfig = {
     },
     resolve: {
         alias: {
-			'@': path.join(__dirname, 'app/src/renderer'),
+            '@': path.join('app/src/renderer'),
             'components': path.join(__dirname, 'app/src/renderer/components'),
             'renderer': path.join(__dirname, 'app/src/renderer')
         },

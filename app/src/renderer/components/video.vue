@@ -9,7 +9,7 @@
 		</p>
 		<div class="container _flex-row _j-center">
 			<button @click="saveVideos()"
-				class="save-changes waves-effect waves-light"
+				class="save-change waves-effect waves-light"
 				type="button"
 				>Сохранить списки видео</button>
 		</div>
@@ -53,7 +53,7 @@
 		@include MDShadow-1;
 	}
 
-	.save-changes {
+	.save-change {
 		@include MDButton( $white , $green ) {
 			height: 3rem;
 			padding: 0 1rem;

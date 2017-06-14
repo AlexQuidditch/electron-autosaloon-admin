@@ -1,7 +1,7 @@
 <template lang="html">
 	<section id="other" class="other">
 		<div class="container _flex-row _j-around">
-			<div class="column">
+			<div class="column _other">
 				<button @click="saveFilter()"
 					class="save-button waves-effect waves-light"
 					type="button"
@@ -33,7 +33,7 @@
 				</label>
 
 			</div>
-			<div class="column">
+			<div class="column _other">
 				<button @click="saveTestDrive()"
 					class="save-button waves-effect waves-light"
 					type="button"
@@ -67,23 +67,39 @@
 
 			</div>
 		</div>
+		<div class="container">
+			<h2 class="other__title">Редактирование раздела "Об автосалоне" на главной странице</h2>
+		    <vue-editor v-model="mainPage"
+		    	:editorToolbar="customToolbar"
+				class="editor-container__editor"
+		    	>
+	    	</vue-editor>
+			<button @click="saveMainPage()"
+				class="save-button waves-effect waves-light"
+				type="button"
+				>Сохранить изменения на главной странице</button>
+		</div>
 	</section>
 </template>
 
 <script>
 
+	import { VueEditor } from 'vue2-editor';
+
 	export default {
 		name: "other",
+		components: { VueEditor },
 		data() {
 			return {
 				Filter: [],
 				TestDrive: [],
 				newFilter: '',
 				newTestDrive: '',
-				placeholder: 'Добавить пункт'
+				mainPage: '',
+				placeholder: 'Добавить пункт',
 			}
 		},
-		created() {
+		mounted() {
 			const filter = [];
 			for ( let i of this.$state.content.Filter.categories ) {
 				filter.push( i );
@@ -94,6 +110,15 @@
 				testDrive.push( i );
 			};
 			this.TestDrive = testDrive;
+			let main = '';
+			let final = main.concat( this.$state.content.TestDrive.description );
+			this.mainPage = final;
+			console.log( final );
+		},
+		computed: {
+			customToolbar() {
+				return this.$state.setttings.customToolbar
+			}
 		},
 		methods: {
 			saveTestDrive() {
@@ -101,25 +126,37 @@
 			},
 			saveFilter() {
 				this.$store.dispatch( 'saveFilter' , this.Filter );
+			},
+			saveMainPage() {
+				this.$store.dispatch( 'saveMainPage' , this.mainPage );
 			}
 		}
 	}
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 	@import "../scss/partials/_layout";
 	@import "../scss/partials/_mixins";
 	@import "../scss/partials/_variables";
 
+	.other {
+		&__title {
+			margin: 16px 0;
+		}
+	}
+
 	.column {
-		width: 45%;
+		&._other {
+			width: 45%;
+		}
 	}
 
 	.save-button {
 		@include MDButton( $white , $green ) {
-			height: 3rem;
+			size: 100% 3rem;
+			margin-top: 16px;
 			line-height: 3rem;
 		};
 	}

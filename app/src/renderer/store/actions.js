@@ -25,6 +25,9 @@ export const saveTestDrive = ( context , payload ) => {
 export const saveFilter = ( context , payload ) => {
 	return context.commit( 'saveFilter' , payload )
 };
+export const saveMainPage = ( context , payload ) => {
+	return context.commit( 'saveMainPage', payload )
+};
 
 export const saveService = ( context , payload ) => {
 	return context.commit( 'saveService', payload )
@@ -36,6 +39,7 @@ export const saveServices = ( context , payload ) => {
 export const saveVideos = ( context , payload ) => {
 	return context.commit( 'saveVideos', payload )
 };
+
 
 export const fetchFromServer = ( context , payload ) => {
 	return api.fetchFromServer( payload )
@@ -101,8 +105,8 @@ export const sendToServer = ( context ) => {
 			);
 		} else {
 			swal(
-				'Сохранено!',
-				'Изменения сохранены.',
+				'Упс!',
+				'Изменения не отправлены.',
 				'error'
 			);
 		}

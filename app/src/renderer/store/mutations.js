@@ -18,6 +18,9 @@ export const saveTestDrive = ( state , payload ) => {
 export const saveFilter = ( state , payload ) => {
 	state.content.Filter.categories = payload;
 };
+export const saveMainPage = ( state , payload ) => {
+	state.content.TestDrive.description = payload;
+};
 
 export const saveService = ( state , payload ) => {
 	state.content.Service[payload[0]] = payload[1];
